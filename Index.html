@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín</title>
+    <!-- Importar la fuente de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Dancing Script', cursive; /* Fuente romántica */
+            color: #c62828;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #ffebee; /* Color de fondo base */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%23c62828' fill-opacity='0.3' d='M50 90.7 12.5 53.2c-6-6-6-15.7 0-21.7 6-6 15.7-6 21.7 0L50 47.8l15.8-16.3c6-6 15.7-6 21.7 0 6 6 6 15.7 0 21.7L50 90.7z'/%3E%3C/svg%3E");
+            background-repeat: repeat; /* Repetir el patrón en todo el fondo */
+        }
+        header {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Degradado más claro */
+            color: white;
+            padding: 15px; /* Reducir el padding para hacer el header más pequeño */
+            font-family: 'Great Vibes', cursive; /* Fuente elegante para el header */
+            font-size: 2rem; /* Tamaño de fuente un poco más pequeño */
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .gallery img {
+            margin: 10px;
+            border: 5px solid #ff9a9e; /* Marco más claro */
+            border-radius: 10px;
+            width: 270px;
+            height: auto;
+        }
+        footer {
+            background: linear-gradient(135deg, #fad0c4, #ff9a9e); /* Degradado más claro */
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-family: 'Great Vibes', cursive; /* Fuente elegante para el footer */
+            font-size: 1.5rem; /* Tamaño de fuente más grande */
+        }
+
+        /* Estilos del popup */
+        .popup {
+            display: none; /* Oculta el popup inicialmente */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 33.33%; /* Un tercio del ancho de la página */
+            max-width: 500px; /* Ancho máximo */
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            z-index: 1000;
+        }
+        .popup img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer; /* Cambia el cursor a una mano al pasar sobre la imagen */
+        }
+        .overlay {
+            display: none; /* Oculta el overlay inicialmente */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            z-index: 999;
+        }
+
+        /* Estilos para la nueva sección */
+        .message-section {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.6); /* Fondo más transparente */
+            margin: 20px;
+            border-radius: 10px;
+            font-family: 'Arial', sans-serif; /* Fuente más legible */
+        }
+        .message-section p {
+            font-size: 1.8rem; /* Tamaño de fuente más grande */
+            margin-bottom: 20px;
+            color: #333; /* Color de texto más oscuro para mejor legibilidad */
+        }
+        .message-section img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>¡Nuestro primer 14 de febrero!</h1>
+    </header>
+
+    <div class="gallery">
+        <img src="imagenes/imagen1.jpg" alt="Foto 1">
+        <img src="imagenes/imagen2.jpg" alt="Foto 2">
+        <img src="imagenes/imagen3.jpg" alt="Foto 3">
+        <img src="imagenes/imagen4.jpg" alt="Foto 4">
+    </div>
+
+    <!-- Nueva sección de mensaje -->
+    <div class="message-section">
+        <p>No sabia como empezar a escribirte algo bonito.</p>
+        <img src="imagenes/gato.jpg" alt="Imagen 6">
+        
+        <p>Pero vi nuestras fotos y me inspiré.</p>
+        <img src="imagenes/rene.jpg" alt="Imagen 7">
+        
+        <p>La primera vez que te vi dije ¡waaaaaaaaoooooo!, es tan hermosa…</p>
+        <img src="imagenes/patricia.png" alt="Imagen 8">
+        
+        <p>Que pensé que era demasiado bueno para ser real.</p>
+        <img src="imagenes/lloron.jpg" alt="Imagen 9">
+        
+        <p>Pero ya en serio, quiero decirte que soy la persona más feliz cuando comparto todo contigo, no sé cuanto tiempo nos toque estar juntos, o que venga en el futuro, lo único que deseo es estar contigo. Te quiero mi PECHOCHA.</p>
+        <img src="imagenes/sirenos.png" alt="Imagen 10">
+    </div>
+
+    <footer>
+        <p>© 2025 San Valentín</p>
+    </footer>
+
+    <!-- Reproductor de Audio MP3 -->
+    <audio id="background-music" loop>
+        <source src="esporti.mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+
+    <!-- Popup -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <img src="imagenes/imagen5.png" alt="Imagen de San Valentín" id="popup-image">
+    </div>
+
+    <script>
+        // Muestra el popup y el overlay al cargar la página
+        window.addEventListener("load", function() {
+            const popup = document.getElementById("popup");
+            const overlay = document.getElementById("overlay");
+
+            popup.style.display = "block";
+            overlay.style.display = "block";
+        });
+
+        // Cierra el popup al hacer clic en la imagen dentro del popup
+        const popupImage = document.getElementById("popup-image");
+        popupImage.addEventListener("click", function() {
+            const popup = document.getElementById("popup");
+            const overlay = document.getElementById("overlay");
+
+            popup.style.display = "none";
+            overlay.style.display = "none";
+        });
+
+        // Cierra el popup al hacer clic en cualquier parte fuera del popup
+        document.addEventListener("click", function(event) {
+            const popup = document.getElementById("popup");
+            const overlay = document.getElementById("overlay");
+
+            // Verifica si el clic fue fuera del popup
+            if (!popup.contains(event.target)) {
+                popup.style.display = "none";
+                overlay.style.display = "none";
+            }
+        });
+
+        // Reproduce el audio después de que el usuario haga clic
+        function playMusic() {
+            const audio = document.getElementById("background-music");
+            audio.play()
+                .then(() => {
+                    console.log("Audio reproducido correctamente.");
+                })
+                .catch((error) => {
+                    console.error("Error al reproducir el audio:", error);
+                });
+        }
+
+        // Activa la música al hacer clic en cualquier parte de la página
+        document.body.addEventListener("click", playMusic);
+    </script>
+</body>
+</html>
